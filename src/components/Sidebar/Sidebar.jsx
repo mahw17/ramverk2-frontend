@@ -5,16 +5,24 @@ import imagine from "assets/img/sidebar-3.jpg";
 import logo from "assets/img/reactlogo.png";
 
 import dashboardRoutes from "routes/dashboard.jsx";
+import {reactLocalStorage} from 'reactjs-localstorage';
+
 
 class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: window.innerWidth
+      width: window.innerWidth,
+      login: false
     };
   }
   activeRoute(routeName) {
-    return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
+      if (reactLocalStorage.get("token") !== 'false') {
+          this.state.login = true;
+      } else {
+          this.state.login = false;
+      }
+      return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
   }
   updateDimensions() {
     this.setState({ width: window.innerWidth });
@@ -54,26 +62,28 @@ class Sidebar extends Component {
         <div className="sidebar-wrapper">
           <ul className="nav">
             {dashboardRoutes.map((prop, key) => {
-              if (!prop.redirect)
-                return (
-                  <li
-                    className={
-                      prop.upgrade
-                        ? "active active-pro"
-                        : this.activeRoute(prop.path)
-                    }
-                    key={key}
-                  >
-                    <NavLink
-                      to={prop.path}
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      <i className={prop.icon} />
-                      <p>{prop.name}</p>
-                    </NavLink>
-                  </li>
-                );
+                if (prop.visible && (prop.parameters === 'loginReq' ? this.state.login : true))
+                    if (!prop.redirect)
+                        return (
+                            <li
+                            className={
+                                prop.upgrade
+                                ? "active active-pro"
+                                : this.activeRoute(prop.path)
+                            }
+                            key={key}
+                            >
+                            <NavLink
+                            to={prop.path}
+                            className="nav-link"
+                            activeClassName="active"
+                            >
+                            <i className={prop.icon} />
+                            <p>{prop.name}</p>
+                            </NavLink>
+                            </li>
+                        );
+
               return null;
             })}
           </ul>

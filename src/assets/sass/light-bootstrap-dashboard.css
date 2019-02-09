@@ -2559,8 +2559,8 @@ body > .navbar-collapse[data-color="purple"]:after {
     display: none !important; }
   .card form [class*="col-"] {
     padding: 6px; }
-  .card form [class*="col-"]:first-child {
-    padding-left: 15px; }
+  /* .card form [class*="col-"]:first-child {
+    padding-left: 15px; } */
   .card form [class*="col-"]:last-child {
     padding-right: 15px; } }
 
