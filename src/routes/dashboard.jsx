@@ -64,6 +64,14 @@ const dashboardRoutes = [
     visible: true
   },
   {
+    path: "/report/kmom05",
+    name: "KMOM05",
+    icon: "pe-7s-news-paper",
+    component: Report,
+    parameters: "kmom05",
+    visible: true
+  },
+  {
     path: "/message",
     name: "MEDDELANDE",
     icon: null,
