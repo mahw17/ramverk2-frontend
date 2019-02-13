@@ -17,7 +17,7 @@ class Chat extends Component {
           url: document.getElementById("connect_url"),
           outputLog:[],
           messageText: '',
-          nick: 'Marcus'
+          nick: 'Enter_nickname'
         };
     }
 
