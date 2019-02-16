@@ -3,6 +3,7 @@ import UserProfile from "views/User/UserProfile";
 import Report from "views/Report/Report";
 import ReportAdd from "views/Report/ReportAdd";
 import Chat from "views/Chat/Chat";
+import ChatHistory from "views/Chat/ChatHistory";
 import Message from "views/Message/Message";
 
 
@@ -72,6 +73,14 @@ const dashboardRoutes = [
     visible: true
   },
   {
+    path: "/report/kmom06",
+    name: "KMOM06",
+    icon: "pe-7s-news-paper",
+    component: Report,
+    parameters: "kmom06",
+    visible: true
+  },
+  {
     path: "/message",
     name: "MEDDELANDE",
     icon: null,
@@ -80,13 +89,21 @@ const dashboardRoutes = [
     visible: false
   },
   {
-      path: "/chat",
+      path: "/chat/start",
       name: "CHAT",
       icon: "pe-7s-chat",
       component: Chat,
       parameters: null,
       visible: true
     },
+  {
+    path: "/chat/history",
+    name: "CHAT HISTORY",
+    icon: "pe-7s-chat",
+    component: ChatHistory,
+    parameters: null,
+    visible: true
+  },
   { redirect: true, path: "/", to: "/user", name: "Om mig" }
 ];
 

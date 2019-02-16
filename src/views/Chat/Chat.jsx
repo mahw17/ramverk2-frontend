@@ -45,7 +45,8 @@ class Chat extends Component {
      * What to do when user clicks Connect
      */
     connect = (e) => {
-        let url = " wss://chat.holmersson.se/";
+        let url = "wss://chat.holmersson.se/";
+        // let url = "ws://localhost:1338/";
         this.wss = new WebSocket(url+this.state.nick, "json");
         console.log("Connecting to: wss://chat.holmersson.se/", "json");
 
