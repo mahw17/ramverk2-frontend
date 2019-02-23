@@ -27,6 +27,10 @@
     font-size: 13px;
 }
 
+.btn-test {
+    margin-top: 1rem;
+}
+
 #map{
     position:relative;
     width:100%;
